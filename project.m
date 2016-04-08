@@ -1,0 +1,11 @@
+clear all;clc;
+fid=fopen('C://Users//LENOVO//Desktop//result.txt', 'rt');
+result=fscanf(fid,'%f %f %f %f %f %f',[6,inf]);
+index=[1:size(result,2)];
+plot(index,result);
+axis([0 500 0 1]);
+xlabel('time');
+ylabel('rate');
+title('rate-time figure');
+legend('S1','I1','R1','S2','I2','R2');
+fclose(fid);
