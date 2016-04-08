@@ -23,6 +23,7 @@
 #define RECOVER2 0.01
 #define BASIS 0.02
 #define BASIS2 0.02
+#define LOOP_NUM 30
 
 #define k1 0.8
 #define k2 0.8
@@ -533,7 +534,7 @@ int main(int argc, const char* argv[])
 {
 	FILE* fp = fopen("C://Users//LENOVO//Desktop//result_average_degree_6.txt", "w");
 	int i;
-	double data[30][2], sum1=0, sum2=0, average1, average2;
+	double data[LOOP_NUM][2], sum1=0, sum2=0, average1, average2;
 	struct net net;
 
 	if (fp==NULL)
@@ -543,7 +544,7 @@ int main(int argc, const char* argv[])
 	}
 	srand((unsigned)time(NULL));
 
-	for (i=0; i<30; i++)
+	for (i=0; i<LOOP_NUM; i++)
 	{
 		max1 = 0;
 		max2 = 0;
@@ -555,7 +556,7 @@ int main(int argc, const char* argv[])
 	    printf("Maximum percentage of I for disease 2 is: %g\n", max2);
 	}
 
-	for (i=0; i<30; i++)
+	for (i=0; i<LOOP_NUM; i++)
 	{
 	    fprintf(fp, "%u\t%g\t%g\n", i+1, data[i][0], data[i][1]);
 	    sum1 += data[i][0];
